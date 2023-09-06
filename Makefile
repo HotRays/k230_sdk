@@ -107,6 +107,7 @@ extract_toolchain: download_toolchain
 
 .PHONY: prepare_toolchain
 prepare_toolchain: extract_toolchain
+	sed -i "s \/opt\/ `pwd`\/ g" .config
 	@if [ ! -f toolchain/.toolchain_ready ];then \
 	touch toolchain/.toolchain_ready; \
 	fi;
